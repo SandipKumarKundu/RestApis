@@ -18,7 +18,7 @@
     DB.register=async (data)=>{
         DB.init();
         var Object1=data;
-        console.log('at Login script Validating Users details In DB ');
+        console.log('at registration script Validating Users details In DB ');
         // console.log(Object1.name);
         //var string ='INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+')'
         // const text = 'INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+','+Object1.password+')';

@@ -1,4 +1,5 @@
     var app=angular.module('Restapi',[]);
+    app.constant('apiUrl', 'http://localhost:3001/');
     app.controller('login',['$scope','$http',function(scope,http){
     scope.User={}
    scope.Login=function(){
@@ -14,11 +15,11 @@ console.log(request.status)
    }
 
 }]);
-app.controller('register',['$scope','$http',function(scope,http){
+app.controller('register',['$scope','$http','apiUrl',function(scope,http,apiUrl){
     scope.User={}
    scope.Login=function(){
        console.log(JSON.stringify(scope.User))
-       http.post('/registration',scope.User).then(
+       http.post(apiUrl+'registration',scope.User).then(
            function(request,response){
 console.log(request.status)
            },

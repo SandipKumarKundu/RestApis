@@ -34,7 +34,7 @@ function(req, res) {
   res.redirect('/');
 });
 
-app.get('/registration',(req, res)=>{
+app.post('/registration',(req, res)=>{
   RegistrationScript.register(req.body).then((user)=>{  res.json(user)});
 
 })
