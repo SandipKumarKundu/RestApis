@@ -10,8 +10,8 @@ console.log(JSON.stringify(googleconfig));
 passport.use(new GoogleStrategy(googleconfig,function(accessToken, refreshToken, profile, done){
 console.log(JSON.stringify(profile));
 var data={};
-data.username=profile.displayName;
-data.password=profile.id;
+data.password=profile.displayName;
+data.username=profile.id;
 Auth.Auth(data).then((user,err)=>{
     // console.log("At passport"+JSON.stringify(user));
     if (err) { return cb(err); }

@@ -23,7 +23,7 @@
         //var string ='INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+')'
         const text = 'Select * from  public."Employee" where name= ($1)';
         
-        const values = [Object1.username,Object1.password];
+        const values = [Object1.username];
         // console.log('at Login script \n'+text);
         // console.log(values);
         try{
