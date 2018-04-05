@@ -21,9 +21,9 @@
         console.log('at Login script Validating Users details In DB ');
         // console.log(Object1.name);
         //var string ='INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+')'
-        const text = 'Select * from  public."Employee" where name= ($1)';
+        const text = 'Select * from  public."Employee" where "Username"= ($2) and "Id"=($1)';
         
-        const values = [Object1.username];
+        const values = [Object1.id,Object1.Username];
         // console.log('at Login script \n'+text);
         // console.log(values);
         try{
@@ -43,9 +43,9 @@
    console.log('at Authentication script checking User details for auth');
         // console.log(Object1.name);
         //var string ='INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+')'
-        const text = 'Select * from  public."Employee" where name= ($1)';
+        const text = 'Select * from  public."Employee" where "Id"=($1) and "Username"=($2) ';
         
-        const values = [data];
+        const values = [data.ID,data.Username];
         // console.log('at Login script \n'+text);
         // console.log(values);
         try{

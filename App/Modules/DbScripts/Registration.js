@@ -17,13 +17,12 @@
 
     DB.register=async (data)=>{
         DB.init();
-        var Object1=data;
-        console.log('at registration script Validating Users details In DB ');
+           console.log('at registration script Validating Users details In DB ');
         // console.log(Object1.name);
         //var string ='INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+')'
         // const text = 'INSERT INTO public."Employee"("Emp") VALUES'+'('+Object1.Emp+','+Object1.password+')';
-        const text = 'INSERT INTO public."Employee" (name, "Password") VALUES($1, $2) RETURNING *'
-        const values = [Object1.username,Object1.password]
+        const text = 'INSERT INTO public."Employee"("Id", "Username", "Logintype", password, "Confirmpassword", "ImageURL") VALUES($1, $2,$3,$4,$5,$6) RETURNING *'
+        const values = [data.id,data.Username,data.Logintype,data.password,data.Confirmpassword,data.ImageURL]
         // console.log('at Login script \n'+text);
         // console.log(values);
         try{
