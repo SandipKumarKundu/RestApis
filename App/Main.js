@@ -4,7 +4,8 @@ var express = require("express");
 var Postgres=require("./Modules/DbScripts/Postgress")
 var session = require("express-session");
 var RegistrationScript=require('./Modules/DbScripts/Registration');
-var passportConfig=require('./Modules/passport')
+var passportlocalConfig=require('./Modules/passport/passportlocal');
+var passportgoogleConfig=require('./Modules/passport/passportgoogle');
 var passport=require ("passport");
 var process_1 = require("process");
 var path=require('path');
@@ -31,9 +32,15 @@ router.get('/register',(req, res)=>{
 })
 app.post('/login',passport.authenticate('local', { failureRedirect: '/register' }),
 function(req, res) {
-  res.redirect('/');
+  res.sendFile('/');
 });
-
+router.get('/google',passport.authenticate('google', {
+  scope: ['profile']
+}));
+app.get('/google/auth',passport.authenticate('google', { failureRedirect: '/register' }),
+function(req, res) {
+  res.redirect('/');
+})
 app.post('/registration',(req, res)=>{
   RegistrationScript.register(req.body).then((user)=>{  res.json(user)});
 
